@@ -16,14 +16,14 @@ a: .word -5234
 	 
 _main:
 
-     LDR r4, =a  		     ; @Get the address of a
-     LDR r2, [r4] 			 ; @Get value of a
-     MOV r3, #45  			 ; @1/45 = 0.02222.. = 0.0000010110110000011.. in binary = 2^(-6) + 2^(-8) + 2^(-9) + 2^(-11)..
-     MOV r1, r2, ASR #6 	 ; @Divide by 2^6 
+     LDR r4, =a              ; @Get the address of a
+     LDR r2, [r4]            ; @Get value of a
+     MOV r3, #45             ; @1/45 = 0.02222.. = 0.0000010110110000011.. in binary = 2^(-6) + 2^(-8) + 2^(-9) + 2^(-11)..
+     MOV r1, r2, ASR #6      ; @Divide by 2^6 
      ADD r1, r1, r2, ASR #8  ; @Divide by 2^8 
      ADD r1, r1, r2, ASR #9  ; @Divide by 2^9 
      ADD r1, r1, r2, ASR #11 ; @Divide by 2^11
-	 ADD r1, r1, r2, ASR #17 ; @Divide by 2^17
-	 ADD r1, r1, r2, ASR #18 ; @Divide by 2^18
+     ADD r1, r1, r2, ASR #17 ; @Divide by 2^17
+     ADD r1, r1, r2, ASR #18 ; @Divide by 2^18
 	
      @ Note: This gives the approximate quotient as 1/45 is a non terminating decimal
