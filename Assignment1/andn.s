@@ -1,5 +1,6 @@
-  @Performs And not operation - ANDN r1,r2,r3
-
+  @ Performs And not operation - ANDN r1,r2,r3
+  @ This can be done with a single BIC operation instead
+  
   @ BSS section
       .bss
 z: .word
@@ -23,5 +24,4 @@ _main:
      LDR r3, [r4]   ; @ Load value of b into register r3
      MVN r4, r3     ; @ Complement the bits of r3 and move the result to r4 using Move not instuction
      AND r1, r2, r4 ; @ Perform AND operation
-	
-    @ Note: This can be done with a single BIC operation instead
+	   

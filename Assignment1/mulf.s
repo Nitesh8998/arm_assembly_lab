@@ -1,4 +1,4 @@
-  @ Performs fast multiplication operation - MUL r1,r2,#54
+  @ Performs fast multiplication(not by repeated addition) operation - MULF r1,r2,#54
 
   @ BSS section
       .bss
@@ -6,7 +6,7 @@ z: .word
 
   @ DATA SECTION
       .data
-a: .word -5234 
+a: .word 5234 
 
   @ TEXT section
       .text
