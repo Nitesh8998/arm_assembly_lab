@@ -24,6 +24,9 @@ _main:
         LDR r2,[r4]
         LDR r5, =b
         LDR r3,[r5]
+		MOV r1, #0
+		CMP r3, #0
+		SUBLT r3, r1, r3
 		MOV r7, #0
 		MOV r8, #32
 		
@@ -41,6 +44,8 @@ _main:
 		MOV r9, #1
 		CMP r6, r2
 		SUB r2, r2, r6
+		CMP r6, #0
+		MOVEQ r9, #0
 		LSL r9, r9, r8
 		SUB r8, r8, #1
 		ADD r7, r7, r9 
