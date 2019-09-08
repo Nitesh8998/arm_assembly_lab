@@ -7,7 +7,7 @@ _main:
 @abs(6) = 6 ==> condition 2
 	
 _start:
-	ldr r2, =-6 @Loading some 
+	ldr r2, =-6 @Loading some value can be +ve or -ve. Change here if you want to give +ve value and run
 	cmp r2,#0
 	ble NEG
 POS:
