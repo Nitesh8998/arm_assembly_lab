@@ -1,7 +1,6 @@
 
   @ BSS section
       .bss
-sum: .word
 
   @ DATA SECTION
       .data
