@@ -4,8 +4,8 @@
 
   @ DATA SECTION
       .data
-str1: .asciz "BAT" ;
-str2: .asciz "CAT";
+str1: .asciz "CAT" ;
+str2: .asciz "BAT";
 greater: .word 0x00000000;
 
 
@@ -15,29 +15,28 @@ greater: .word 0x00000000;
 .globl _main
 
 _main:
-			ldr r0, =str1 ; 			//address of str1 loaded in r0
-			ldr r6, =str2 ; 			//address of str1 loaded in r0
-			ldr r1, [r0], #4
-			ldr r7, [r6], #4 ; 			//address of str1 loaded in r0
-			mov r2, #0x000000ff
+			ldr r0, =str1 ; 				@address of str1 loaded in r0
+			ldr r6, =str2 ; 				@address of str1 loaded in r0
 			
-		loop1:  and r3, r2, r1
-			and r8, r2, r7
-			cmp r3, #0x00
+		loop1:  ldrb r3, [r0], #1			@load char into registers and loop for comparison
+			ldrb r8, [r6], #1
+			
+			cmp r3, #0x00					@if char is null character exit
 			bne loop2
 			cmp r8, #0x00
 			beq loop3
 			
-		loop2:	mov r1, r1, lsr #8
-			mov r7, r7, lsr #8
-			cmp r3, r8			
+		loop2:	cmp r3, r8					@comparing chars
 			beq loop1
-			bgt loop3
-			mov r4, #0xffffffff
+			bgt loop3						@if not equal then jumping to print result
+			mov r4, #0xffffffff				@set all fs if string1<string2
 			b loop4
 			
 		loop3:	mov r4, #0x00000000;
 		loop4:	ldr r5, =greater
-			str r4, [r5]
+			strb r4, [r5], #1
+			strb r4, [r5], #1
+			strb r4, [r5], #1
+			strb r4, [r5], #1
 			
 			
